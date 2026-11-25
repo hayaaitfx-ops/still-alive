@@ -86,6 +86,20 @@
   background: #1a1ae6;
 }
 
+.worlds__soon {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  opacity: .28;
+  white-space: nowrap;
+  font-size: 8px;
+  letter-spacing: .16em;
+}
+.worlds__soon b {
+  font-weight: 400;
+  font-size: 7px;
+}
+
 @media (max-width: 640px) {
   .worlds {
     gap: 10px;
