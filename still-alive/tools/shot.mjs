@@ -5,8 +5,8 @@ import { resolve } from "node:path";
 
 const EDGE = "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe";
 const PORT = 9333;
+const root = resolve("still-alive");
 const profile = resolve(".scratch/edge-profile");
-const pagePath = resolve("still-alive/index.html");
 const outDir = resolve("still-alive/shots");
 mkdirSync(outDir, { recursive: true });
 rmSync(profile, { recursive: true, force: true });
@@ -79,7 +79,7 @@ function waitEvent(events, method, timeout = 15000) {
   });
 }
 
-async function shoot({ name, width, height, mobile = false }) {
+async function shoot({ name, path, width, height, mobile = false }) {
   const target = await (await fetch(`http://127.0.0.1:${PORT}/json/new?about:blank`, { method: "PUT" })).json();
   const conn = await connect(target.webSocketDebuggerUrl);
   const { send, events } = conn;
@@ -90,14 +90,14 @@ async function shoot({ name, width, height, mobile = false }) {
     width, height, deviceScaleFactor: 1, mobile,
     screenWidth: width, screenHeight: height,
   });
-  await send("Page.navigate", { url: pathToFileURL(pagePath).href });
+  await send("Page.navigate", { url: pathToFileURL(resolve(root, path)).href });
   await waitEvent(events, "Page.loadEventFired");
-  await sleep(1800);
+  await sleep(1600);
   await send("Runtime.evaluate", {
     expression: `document.fonts.ready.then(() => {
       document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-visible'));
       const s = document.createElement('style');
-      s.textContent = '.cursor{display:none!important} .progress{display:none!important}';
+      s.textContent = '.noise,.grain{display:none!important}';
       document.head.appendChild(s);
     })`,
     awaitPromise: true,
@@ -123,9 +123,9 @@ async function shoot({ name, width, height, mobile = false }) {
 try {
   await waitForDebugger();
   const results = [];
-  results.push(await shoot({ name: "desktop-1440", width: 1440, height: 900 }));
-  results.push(await shoot({ name: "tablet-1024", width: 1024, height: 900 }));
-  results.push(await shoot({ name: "mobile-390", width: 390, height: 844, mobile: true }));
+  results.push(await shoot({ name: "zine-1440", path: "index.html", width: 1440, height: 900 }));
+  results.push(await shoot({ name: "hollow-1440", path: "hollow/index.html", width: 1440, height: 900 }));
+  results.push(await shoot({ name: "hollow-390", path: "hollow/index.html", width: 390, height: 844, mobile: true }));
   console.log(JSON.stringify(results, null, 2));
 } catch (err) {
   console.error(err);

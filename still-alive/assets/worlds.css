@@ -1,0 +1,107 @@
+/* ==========================================================================
+   WORLDS — shared navigation strip between TIDEBOUND-style worlds
+   Loaded by every world page. Defines --worlds-h, which pages use to offset
+   their own fixed headers.
+   ========================================================================== */
+
+:root {
+  --worlds-h: 34px;
+}
+
+.worlds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: var(--worlds-h);
+  padding: 0 var(--pad, 24px);
+  background: #0b0b0b;
+  color: #e9e7de;
+  font-family: var(--mono, "Space Mono", monospace);
+  font-size: 8px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(233, 231, 222, .16);
+}
+
+.worlds__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  opacity: .42;
+  white-space: nowrap;
+}
+.worlds__label::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: #1a1ae6;
+  border-radius: 50%;
+}
+
+.worlds__list {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2.2vw, 30px);
+  margin-left: auto;
+  min-width: 0;
+}
+
+.worlds__link {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  color: inherit;
+  text-decoration: none;
+  opacity: .5;
+  white-space: nowrap;
+  padding: 3px 0;
+  transition: opacity .25s linear, color .25s linear;
+}
+.worlds__link b {
+  font-weight: 400;
+  font-size: 7px;
+  opacity: .7;
+}
+.worlds__link:hover,
+.worlds__link:focus-visible {
+  opacity: 1;
+  color: #fff;
+}
+.worlds__link[aria-current] {
+  opacity: 1;
+}
+.worlds__link[aria-current]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: #1a1ae6;
+}
+
+@media (max-width: 640px) {
+  .worlds {
+    gap: 10px;
+    font-size: 7px;
+    letter-spacing: .14em;
+  }
+  .worlds__label { display: none; }
+  .worlds__list {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .worlds__link b { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .worlds__link { transition: none; }
+}
