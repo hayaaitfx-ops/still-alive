@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STILL ALIVE — Issue 001</title>
+<meta name="description" content="A digital zine about surviving yourself. Assembled from halftone, static and stubborn hope.">
+<meta name="theme-color" content="#e9e7de">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231a1ae6'/%3E%3Cpath d='M50 5C53 38 62 47 95 50 62 53 53 62 50 95 47 62 38 53 5 50 38 47 47 38 50 5Z' fill='%23e9e7de'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Instrument+Serif:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<!-- Icon sprite: dove + hand glyphs from Font Awesome Free 6.5.2 (CC BY 4.0) -->
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="icon-dove" viewBox="0 0 512 512">
+      <path d="M160.8 96.5c14 17 31 30.9 49.5 42.2c25.9 15.8 53.7 25.9 77.7 31.6V138.8C265.8 108.5 250 71.5 248.6 28c-.4-11.3-7.5-21.5-18.4-24.4c-7.6-2-15.8-.2-21 5.8c-13.3 15.4-32.7 44.6-48.4 87.2zM320 144v30.6l0 0v1.3l0 0 0 32.1c-60.8-5.1-185-43.8-219.3-157.2C97.4 40 87.9 32 76.6 32c-7.9 0-15.3 3.9-18.8 11C46.8 65.9 32 112.1 32 176c0 116.9 80.1 180.5 118.4 202.8L11.8 416.6C6.7 418 2.6 421.8.9 426.8s-.8 10.6 2.3 14.8C21.7 466.2 77.3 512 160 512c3.6 0 7.2-1.2 10-3.5L245.6 448H320c88.4 0 160-71.6 160-160V128l29.9-44.9c1.3-2 2.1-4.4 2.1-6.8c0-6.8-5.5-12.3-12.3-12.3H400c-44.2 0-80 35.8-80 80zm80-16a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 100 100">
+      <path d="M50 2C53.2 36.8 63.2 46.8 98 50 63.2 53.2 53.2 63.2 50 98 46.8 63.2 36.8 53.2 2 50 36.8 46.8 46.8 36.8 50 2Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main">SKIP TO CONTENT</a>
+<div class="grain" aria-hidden="true"></div>
+<div class="glitch-overlay" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span class="cursor__dot"></span></div>
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Still Alive, back to top">
+    STILL ALIVE<span class="brand__reg" aria-hidden="true">®</span>
+  </a>
+  <p class="nav__tag mono">A DIGITAL ZINE <span aria-hidden="true">/</span> ISSUE 001</p>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#manifesto">Manifesto</a>
+    <a href="#transmissions">Transmissions</a>
+    <a href="#notes">Field notes</a>
+    <a href="#archive">Archive</a>
+  </nav>
+  <div class="nav__actions">
+    <button class="btn-distort mono" id="distort" type="button" aria-label="Add a short visual distortion to the page">DISTORT</button>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="menu-toggle__label">MENU</span>
+      <span class="menu-toggle__icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav class="mobile-menu__nav" aria-label="Mobile">
+    <a href="#manifesto"><span>01</span>Manifesto</a>
+    <a href="#transmissions"><span>02</span>Transmissions</a>
+    <a href="#notes"><span>03</span>Field notes</a>
+    <a href="#archive"><span>04</span>Archive</a>
+  </nav>
+  <div class="mobile-menu__foot">
+    <p>ALL IS WELL.<br>YOU'RE STILL ALIVE.</p>
+    <span class="mono">SCROLL / 2026</span>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="hero__rail" aria-hidden="true"></div>
+
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow">
+          <span class="eyebrow__tag mono">ISSUE 001</span>
+          <span class="mono">A DIGITAL ZINE ABOUT STAYING ALIVE</span>
+        </p>
+
+        <h1 class="hero__title" aria-label="All is well. You're still alive.">
+          <span class="hl hl--1" aria-hidden="true">ALL IS</span>
+          <span class="hl hl--2" aria-hidden="true"><span class="hl__fill">WELL</span><svg class="hl__star" viewBox="0 0 100 100"><use href="#icon-star"/></svg></span>
+          <span class="hl hl--3" aria-hidden="true">YOU'RE STILL</span>
+          <span class="hl hl--4" aria-hidden="true">ALIVE</span>
+        </h1>
+
+        <div class="hero__sub">
+          <p class="hero__lede">Notes on surviving yourself — assembled from halftone, static &amp; stubborn hope.</p>
+          <p class="hero__caption mono">NO MATTER WHAT YOU DO,<br>I WILL EVENTUALLY BECOME MYSELF.<br><a href="#manifesto">READ THE MANIFESTO <span aria-hidden="true">↗</span></a></p>
+        </div>
+      </div>
+
+      <div class="hero__stage">
+        <div class="stage" id="stage" aria-hidden="true">
+          <span class="wire wire--a"></span>
+          <span class="wire wire--b"></span>
+
+          <div class="orb">
+            <span class="orb__ring"></span>
+            <svg class="orb__star" viewBox="0 0 100 100"><use href="#icon-star"/></svg>
+            <span class="orb__label mono">SIGNAL / 001</span>
+          </div>
+
+          <div class="dots-panel">
+            <span class="dots-panel__edge"></span>
+            <span class="dots-panel__label mono">ALL IS WELL</span>
+          </div>
+
+          <div class="lav-orb">
+            <span class="lav-orb__ring"></span>
+            <p class="lav-orb__text mono">no reason<br>to be valuable<br><em>congratulations</em></p>
+          </div>
+
+          <svg class="dove dove--ink"><use href="#icon-dove"/></svg>
+          <svg class="dove dove--blue"><use href="#icon-dove"/></svg>
+          <svg class="dove dove--paper"><use href="#icon-dove"/></svg>
+
+          <p class="stage__note mono">ALL IS WELL AND THE END<br>IS ONLY THE BEGINNING.<br><span>YOU'RE STILL ALIVE.</span></p>
+
+          <div class="hand-wrap">
+            <img src="assets/hand-fade.png" alt="" width="518" height="1042" loading="eager" decoding="async">
+          </div>
+
+          <span class="black-disc"></span>
+          <span class="blue-bar blue-bar--1"></span>
+          <span class="blue-bar blue-bar--2"></span>
+          <span class="pixel pixel--1"></span>
+          <span class="pixel pixel--2"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__foot">
+      <a class="scroll-cue mono" href="#manifesto">
+        <span>SCROLL TO TRANSMIT</span>
+        <span class="scroll-cue__arrow" aria-hidden="true">↓</span>
+      </a>
+      <p class="mono">A STUDY IN BLUE — NO. 001</p>
+      <p class="mono">EST. 2026 / SOMEWHERE</p>
+    </div>
+  </section>
+
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span>ALL IS WELL</span><i>✦</i>
+          <span>YOU'RE STILL ALIVE</span><i>✦</i>
+          <span>NO REASON TO BE VALUABLE</span><i>✦</i>
+          <span>CONGRATULATIONS</span><i>✦</i>
+          <span>THE HAND KEEPS REACHING</span><i>✦</i>
+          <span>STILL RECEIVING</span><i>✦</i>
+        </div>
+        <div class="marquee__group">
+          <span>ALL IS WELL</span><i>✦</i>
+          <span>YOU'RE STILL ALIVE</span><i>✦</i>
+          <span>NO REASON TO BE VALUABLE</span><i>✦</i>
+          <span>CONGRATULATIONS</span><i>✦</i>
+          <span>THE HAND KEEPS REACHING</span><i>✦</i>
+          <span>STILL RECEIVING</span><i>✦</i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="manifesto" id="manifesto">
+    <span class="ghost-word" aria-hidden="true">BECOMING</span>
+    <span class="wire wire--manifesto" aria-hidden="true"></span>
+    <div class="wrap">
+      <header class="sec-head" data-reveal>
+        <span class="sec-num mono">01</span>
+        <h2 class="sec-label">Manifesto</h2>
+        <span class="sec-meta mono">PRINTED IN BLUE / PAGE 02</span>
+      </header>
+
+      <div class="manifesto__grid">
+        <aside class="manifesto__aside" data-reveal>
+          <p class="mono aside-label">[ TRANSMISSION 01 ]</p>
+          <p class="aside-quote">All is well and the end is only the beginning.</p>
+          <div class="dot-rule" aria-hidden="true"></div>
+          <p class="mono tiny">YOU'RE STILL ALIVE<br>SIGNAL STRENGTH / 88%</p>
+          <span class="black-dot" aria-hidden="true"></span>
+          <p class="mono tiny aside-foot">RECEIVED 03:33 AM<br>NO SIGNAL LOST</p>
+        </aside>
+
+        <div class="manifesto__main">
+          <p class="statement" data-reveal>I will <em>endure</em> it.<br>I will have <em>agency</em>.<br>I will be <span class="mark">free</span>.</p>
+          <div class="manifesto__bottom" data-reveal>
+            <p class="manifesto__text">No matter what you do, I will eventually become myself. The signal gets louder. The hand keeps reaching. The birds don't ask for permission.</p>
+            <p class="mono tiny manifesto__sig">— FIELD NOTE 001, REVISED AT 03:33</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="man-orb" aria-hidden="true"><span></span></div>
+  </section>
+
+  <section class="transmissions" id="transmissions">
+    <span class="wire wire--transmissions" aria-hidden="true"></span>
+    <div class="wrap">
+      <header class="sec-head" data-reveal>
+        <span class="sec-num mono">02</span>
+        <h2 class="sec-label">Transmissions</h2>
+        <span class="sec-meta mono">FOUR THINGS I KEPT / 001–004</span>
+      </header>
+
+      <div class="collage">
+        <article class="card card--prayer" data-reveal>
+          <header class="card__head mono"><span>PRAYER</span><span>001</span></header>
+          <svg class="card__star" viewBox="0 0 100 100" aria-hidden="true"><use href="#icon-star"/></svg>
+          <p class="card__serif">All is well and the end is only the beginning.</p>
+          <footer class="card__foot mono">
+            <span>YOU'RE STILL ALIVE</span>
+            <svg class="icon-star" viewBox="0 0 100 100" aria-hidden="true"><use href="#icon-star"/></svg>
+          </footer>
+        </article>
+
+        <article class="card card--congrats" data-reveal style="--d:.08s">
+          <header class="card__head mono"><span>CONGRATULATIONS</span><span>002</span></header>
+          <p class="card__big">You finally have no reason to be valuable.</p>
+          <footer class="card__foot mono"><span>✦ congratulations, you're free</span></footer>
+        </article>
+
+        <article class="card card--note" data-reveal>
+          <header class="card__head mono"><span>FIELD NOTE</span><span>003</span></header>
+          <h3 class="card__title">Rebuilt from static</h3>
+          <p class="card__mono mono">I have been rebuilt from static. Nothing here is precious except the fact that it continues.</p>
+          <span class="stamp mono">APPROVED<br>FOR NOW</span>
+        </article>
+
+        <article class="card card--signal" data-reveal style="--d:.08s">
+          <header class="card__head mono"><span>SIGNAL</span><span>004</span></header>
+          <svg class="card__star" viewBox="0 0 100 100" aria-hidden="true"><use href="#icon-star"/></svg>
+          <p class="stat">88<span>%</span></p>
+          <p class="card__mono mono">STILL RECEIVING<br>STILL HERE</p>
+          <div class="mini-orbit" aria-hidden="true"><span></span></div>
+        </article>
+      </div>
+
+      <p class="transmissions__foot mono tiny" data-reveal>NOTHING HERE IS VALUABLE. THAT IS THE POINT.</p>
+    </div>
+  </section>
+
+  <section class="notes" id="notes">
+    <span class="notes__grain" aria-hidden="true"></span>
+    <div class="wrap">
+      <header class="sec-head" data-reveal>
+        <span class="sec-num mono">03</span>
+        <h2 class="sec-label">Field notes</h2>
+        <span class="sec-meta mono">CLICK A LINE TO OPEN THE FILE</span>
+      </header>
+
+      <div class="notes__grid">
+        <div class="notes__intro" data-reveal>
+          <h2 class="notes__title">A small index of things that <em>kept</em> me here.</h2>
+          <p class="mono tiny notes__hint">FOUR ENTRIES / NO FIXED ORDER<br>READ SLOWLY, IF AT ALL.</p>
+          <div class="notes__seal" aria-hidden="true">
+            <svg viewBox="0 0 100 100"><use href="#icon-star"/></svg>
+            <span class="mono">NO. 001</span>
+          </div>
+        </div>
+
+        <div class="acc" data-reveal>
+          <div class="acc__item is-open">
+            <button class="acc__trigger" type="button" aria-expanded="true" aria-controls="note-1" id="note-btn-1">
+              <span class="acc__idx mono">01</span>
+              <span class="acc__title">On becoming yourself</span>
+              <span class="acc__tag mono">NOTE</span>
+              <span class="acc__plus" aria-hidden="true">+</span>
+            </button>
+            <div class="acc__panel" id="note-1" role="region" aria-labelledby="note-btn-1">
+              <div class="acc__inner">
+                <p class="acc__body">No matter what you do, I will eventually become myself. Not the version that was convenient. Not the version that kept quiet. The one that was always here, waiting under the noise.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc__item">
+            <button class="acc__trigger" type="button" aria-expanded="false" aria-controls="note-2" id="note-btn-2">
+              <span class="acc__idx mono">02</span>
+              <span class="acc__title">The hand keeps reaching</span>
+              <span class="acc__tag mono">POEM</span>
+              <span class="acc__plus" aria-hidden="true">+</span>
+            </button>
+            <div class="acc__panel" id="note-2" role="region" aria-labelledby="note-btn-2">
+              <div class="acc__inner">
+                <p class="acc__body">There is no dignity in pretending you don't want anything. Reach. Even when the frame cuts you off at the wrist. Even when no one is looking. Even when the light is bad.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc__item">
+            <button class="acc__trigger" type="button" aria-expanded="false" aria-controls="note-3" id="note-btn-3">
+              <span class="acc__idx mono">03</span>
+              <span class="acc__title">Noise as a form of prayer</span>
+              <span class="acc__tag mono">SIGNAL</span>
+              <span class="acc__plus" aria-hidden="true">+</span>
+            </button>
+            <div class="acc__panel" id="note-3" role="region" aria-labelledby="note-btn-3">
+              <div class="acc__inner">
+                <p class="acc__body">I stopped asking the static to become clear. Some signals are only true while they are breaking. All is well. All is well. All is well. The repetition is not a mistake.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc__item">
+            <button class="acc__trigger" type="button" aria-expanded="false" aria-controls="note-4" id="note-btn-4">
+              <span class="acc__idx mono">04</span>
+              <span class="acc__title">Congratulations, you're free</span>
+              <span class="acc__tag mono">END</span>
+              <span class="acc__plus" aria-hidden="true">+</span>
+            </button>
+            <div class="acc__panel" id="note-4" role="region" aria-labelledby="note-btn-4">
+              <div class="acc__inner">
+                <p class="acc__body">You finally have no reason to be valuable. No use, no proof, no performance. Just the blue hour and a body that keeps going. Congratulations. You were never required to be useful.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing" id="archive">
+    <div class="closing__orb" aria-hidden="true">
+      <span class="closing__ring closing__ring--1"></span>
+      <span class="closing__ring closing__ring--2"></span>
+      <span class="closing__star"><svg viewBox="0 0 100 100"><use href="#icon-star"/></svg></span>
+      <p class="mono">STAY<br>ALIVE</p>
+    </div>
+
+    <div class="wrap">
+      <header class="sec-head" data-reveal>
+        <span class="sec-num mono">04</span>
+        <h2 class="sec-label">End transmission</h2>
+        <span class="sec-meta mono">ARCHIVE 001 / OPEN END</span>
+      </header>
+
+      <h2 class="closing__title" data-reveal>
+        <span class="closing__caps">CONGRATU</span><span class="closing__script">lations</span>
+      </h2>
+
+      <div class="closing__grid">
+        <div class="closing__copy" data-reveal>
+          <p class="closing__lead">You finally have no reason to be valuable.</p>
+          <p class="closing__sub mono">YOU'RE STILL ALIVE. THAT'S THE WHOLE PLOT.</p>
+          <a class="top-link mono" href="#top">BACK TO THE TOP <span aria-hidden="true">↑</span></a>
+        </div>
+
+        <form class="signup" id="signup" novalidate data-reveal>
+          <label class="mono" for="email">RECEIVE THE NEXT SIGNAL — NO SPAM, ONLY STATIC</label>
+          <div class="signup__row">
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="YOUR EMAIL" required>
+            <button class="mono" type="submit" id="signupBtn">SUBSCRIBE <span aria-hidden="true">↗</span></button>
+          </div>
+          <p class="signup__msg mono" id="signupMsg" role="status" aria-live="polite"></p>
+          <p class="signup__fine mono">BY SUBSCRIBING YOU AGREE TO NOTHING.<br>THIS IS A FICTIONAL ZINE.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div class="foot__brand">
+      <p class="foot__logo">STILL ALIVE<span aria-hidden="true">®</span></p>
+      <p class="mono tiny">A DIGITAL ZINE / ISSUE 001<br>PRINTED IN ELECTRIC BLUE</p>
+    </div>
+
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="#manifesto">Manifesto</a>
+      <a href="#transmissions">Transmissions</a>
+      <a href="#notes">Field notes</a>
+      <a href="#archive">Archive</a>
+      <a href="mailto:hello@stillalive.zine">hello@stillalive.zine</a>
+    </nav>
+
+    <div class="foot__meta mono tiny">
+      <p>© 2026 — NO RIGHTS RESERVED<br>SET IN ARCHIVO, INSTRUMENT SERIF<br>&amp; SPACE MONO</p>
+      <p>LOCAL TIME <span id="clock">--:--:--</span><br>NO SIGNAL LOST</p>
+    </div>
+  </div>
+
+  <div class="foot__bottom mono">
+    <span>MADE OF HALFTONE, STATIC &amp; STUBBORN HOPE</span>
+    <span>END / 001</span>
+  </div>
+</footer>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>

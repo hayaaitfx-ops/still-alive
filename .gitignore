@@ -1,0 +1,15 @@
+﻿# Temporary browser profiles and scratch files
+.scratch/
+
+# Local agent/project notes (not part of the public website)
+AGENTS.md
+
+# Dependencies and generated artifacts
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.env
+.env.*
+!.env.example
