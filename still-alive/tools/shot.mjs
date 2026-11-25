@@ -124,8 +124,6 @@ try {
   await waitForDebugger();
   const results = [];
   results.push(await shoot({ name: "zine-1440", path: "index.html", width: 1440, height: 900 }));
-  results.push(await shoot({ name: "hollow-1440", path: "hollow/index.html", width: 1440, height: 900 }));
-  results.push(await shoot({ name: "hollow-390", path: "hollow/index.html", width: 390, height: 844, mobile: true }));
   console.log(JSON.stringify(results, null, 2));
 } catch (err) {
   console.error(err);

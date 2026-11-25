@@ -103,8 +103,6 @@ async function audit(path, width, height, mobile) {
 try {
   await waitForDebugger();
   const out = [];
-  out.push(await audit("hollow/index.html", 1440, 900, false));
-  out.push(await audit("hollow/index.html", 390, 844, true));
   out.push(await audit("index.html", 1440, 900, false));
   console.log(JSON.stringify(out, null, 2));
 } catch (e) {
